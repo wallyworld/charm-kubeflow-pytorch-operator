@@ -1,0 +1,19 @@
+name: kubeflow-pytorch-operator
+summary: PyTorch Training for Kubeflow
+maintainers:
+  - Juju Developers <juju@lists.ubuntu.com>
+description: |
+  This charm deploys PyTorch Training configured for use with Kubeflow to
+  Kubernetes models in Juju.
+tags:
+  - machine-learning
+  - ai
+  - bigdata
+  - kubeflow
+series:
+  - kubernetes
+resources:
+  pytorch-operator-image:
+    type: docker
+    description: 'Image for pytorch-operator'
+    auto-fetch: true
