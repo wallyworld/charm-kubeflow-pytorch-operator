@@ -2,10 +2,20 @@ import os
 import yaml
 
 from charmhelpers.core import hookenv
-from charms.reactive import set_flag
+from charms.reactive import set_flag, clear_flag
 from charms.reactive import when, when_not
 
 from charms import layer
+
+
+@when('config.changed')
+def update_config():
+    clear_flag('charm.kubeflow-pytorch-operator.started')
+
+
+@when('layer.docker-resource.pytorch-operator-image.changed')
+def update_image():
+    clear_flag('charm.kubeflow-pytorch-operator.started')
 
 
 @when('layer.docker-resource.pytorch-operator-image.available')
