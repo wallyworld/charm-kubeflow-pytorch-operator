@@ -69,6 +69,15 @@ def start_charm():
                 ],
             },
         ],
+        'customResourceDefinition': [
+            {
+                'group': 'kubeflow.org',
+                'version': 'v1alpha1',
+                'scope': 'Namespaced',
+                'kind': 'PyTorchJob',
+                'validation': {}
+            },
+        ],
     })
 
     layer.status.maintenance('creating container')
